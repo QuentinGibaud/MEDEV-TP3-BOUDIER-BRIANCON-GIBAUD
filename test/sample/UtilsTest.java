@@ -15,14 +15,14 @@ import static org.junit.Assert.*;
  * @author Quentin GIBAUD, Yann BRIANCON, Justine BOUDIER
  */
 public class UtilsTest {
-    
+
     public UtilsTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
@@ -33,26 +33,24 @@ public class UtilsTest {
     @Test
     public void testConcatWords() {
         System.out.println("concatWords");
-        String[] words = null;
-        String expResult = "";
+        String[] words = {"bonjour", "au", "revoir"};
+        String expResult = "bonjouraurevoir";
         String result = Utils.concatWords(words);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
      * Test of computeFactorial method, of class Utils.
      */
-    @Test
+    @Test(timeout = 1000)
     public void testComputeFactorial() {
         System.out.println("computeFactorial");
-        int number = 0;
-        String expResult = "";
-        String result = Utils.computeFactorial(number);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final int factorialOf = 1 + (int) (30000 * Math.random());
+        System.out.println("computing " + factorialOf + "!");
+        System.out.println(factorialOf + "! = " + Utils.computeFactorial(factorialOf));
+        assertEquals("1", Utils.computeFactorial(1));
+        assertEquals("6", Utils.computeFactorial(3));
+        assertEquals("24", Utils.computeFactorial(4));
     }
-    
 }
