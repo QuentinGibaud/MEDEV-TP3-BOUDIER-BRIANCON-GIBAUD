@@ -29,7 +29,7 @@ public class LectureImage {
      */
     public static int[][] lireImage(String nomFichierACharger) {
         BufferedReader fichier;
-        String delimiteurs = " ,.;";
+        String delimiteurs = "\t ,.;";
         int width, height;
         int[][] image = null;
 
@@ -50,22 +50,32 @@ public class LectureImage {
                     int nbPixelLu = 0;
                     int nbLigneLue = 0;
                     line = fichier.readLine();
-                    while (nbLigneLue != height) {
-                        if (nbPixelLu == width) {
-                            nbPixelLu = 0;
-                            nbLigneLue++;
-                        }
+                    
+                    while (line!=null) {
+                        line = fichier.readLine();
                         tokenizer = new StringTokenizer(line, delimiteurs);
 
                         while (tokenizer.hasMoreTokens()) {
                             if (nbPixelLu < width) {
-                                image[nbLigneLue][nbPixelLu] = Integer.parseInt(tokenizer.nextToken());
-                                nbPixelLu++;
+                                if(nbLigneLue < height){
+                                    image[nbLigneLue][nbPixelLu] = Integer.parseInt(tokenizer.nextToken());
+                                    nbPixelLu++;
+                                }
+                                else {
+                                    System.err.println("Not a correct pgm file : Heigth and file not matching");
+                                    break;
+                                }
                             } else {
                                 System.err.println("Not a correct pgm file : Width and file not matching");
+                                break;
                             }
                         }
-
+                        if (nbPixelLu == width) {
+                            nbPixelLu = 0;
+                            nbLigneLue++;
+                        }
+                        
+                        line = fichier.readLine();
                     }
                 } else {
                     System.err.println("No width indicator in the pgm file");
@@ -150,7 +160,7 @@ public class LectureImage {
         int numColonne = matImage[0].length;
         bufferedWriter.write(numColonne + " " + numLigne);
         bufferedWriter.newLine();
-        bufferedWriter.write(255);
+        bufferedWriter.write("255");
         bufferedWriter.newLine();
 
         //On boucle sur le tableau pour écrire par ligne et par colonne
