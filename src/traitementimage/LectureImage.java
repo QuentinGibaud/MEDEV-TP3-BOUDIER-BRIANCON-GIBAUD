@@ -52,9 +52,11 @@ public class LectureImage {
                     line = fichier.readLine();
                     
                     while (line!=null) {
-                        line = fichier.readLine();
+                        //line = fichier.readLine();
+                        
                         tokenizer = new StringTokenizer(line, delimiteurs);
-
+                        
+                        
                         while (tokenizer.hasMoreTokens()) {
                             if (nbPixelLu < width) {
                                 if(nbLigneLue < height){

@@ -18,7 +18,7 @@ public class TraitementImage {
      */
     public static void main(String[] args) throws IOException {
         //int[][] matImage = LectureImage.lireImage("lena.pgm");
-        LectureImage.histogramme("lena.pgm");
+        LectureImage.histogramme("imageTest.pgm");
         //Seuillage.seuillage("lena.pgm", 160);
     }
     
