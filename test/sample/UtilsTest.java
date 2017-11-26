@@ -53,4 +53,11 @@ public class UtilsTest {
         assertEquals("6", Utils.computeFactorial(3));
         assertEquals("24", Utils.computeFactorial(4));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkExpectedException() {
+        System.out.println("checkExpectedException");
+        final int factorialOf = -5;
+        System.out.println(factorialOf + "! = " + Utils.computeFactorial(factorialOf));
+    }
 }
