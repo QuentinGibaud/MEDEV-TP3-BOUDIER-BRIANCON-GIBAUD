@@ -17,8 +17,9 @@ public class TraitementImage {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        int[][] matImage = LectureImage.lireImage("lena.pgm");
+        //int[][] matImage = LectureImage.lireImage("lena.pgm");
         LectureImage.histogramme("lena.pgm");
+        //Seuillage.seuillage("lena.pgm", 160);
     }
     
 }
