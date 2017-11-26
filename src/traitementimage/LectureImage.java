@@ -135,9 +135,9 @@ public class LectureImage {
         for (int j = 1; j < largeur - 1; j++) {
             for (int i = 1; i < hauteur - 1; i++) {
                 if ((i > 0) && (i < (maxHisto - histo[j - 1]))) {
-                    matriceHisto[i][j] = 0;
-                } else {
                     matriceHisto[i][j] = 255;
+                } else {
+                    matriceHisto[i][j] = 0;
                 }
             }
         }
