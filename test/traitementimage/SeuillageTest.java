@@ -53,7 +53,7 @@ public class SeuillageTest {
         String nomImage = "imageTest.pgm";
         int facteurAgrandissant = 2;
         Seuillage.agrandir(nomImage, facteurAgrandissant);
-        int[][] expResult = {{0, 0, 234, 234, 203, 203}, {0, 0, 234, 234, 203, 203}, {255, 255, 266, 266, 108, 108}, {255, 255, 266, 266, 108, 108}, {178, 178, 56, 56, 89, 89}, {178, 178, 56, 56, 89, 89}};
+        int[][] expResult = {{0, 0, 234, 234, 203, 203}, {0, 0, 234, 234, 203, 203}, {255, 255, 216, 216, 108, 108}, {255, 255, 216, 216, 108, 108}, {178, 178, 56, 56, 89, 89}, {178, 178, 56, 56, 89, 89}};
         int[][] expObtain = LectureImage.lireImage("imageTest.pgm_agrandie.pgm");
         assertArrayEquals(expResult, expObtain);
     }
