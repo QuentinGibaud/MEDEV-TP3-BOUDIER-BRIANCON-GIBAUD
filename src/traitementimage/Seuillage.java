@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class Seuillage {
 
-    //Fonction de seuillage : prend une image et un niveau max et renvoie l'image avec les niveaux de gris seuillées
+    //Fonction de seuillage : prend une image et un niveau max et renvoie l'image avec les niveaux de gris seuillées, i.e. en dessous du seuil
     public static void seuillage(String nomImage, int seuil) throws IOException {
         int[][] matImage = LectureImage.lireImage(nomImage);
         for (int i = 0; i < matImage.length; i++) {
