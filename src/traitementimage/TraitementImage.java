@@ -18,10 +18,10 @@ public class TraitementImage {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        //int[][] matImage = LectureImage.lireImage("lena.pgm");
+        int[][] matImage = LectureImage.lireImage("lena.pgm");
         LectureImage.histogramme("lena.pgm");
         Seuillage.agrandir("lena.pgm", 3);
-        //Seuillage.seuillage("lena.pgm", 160);
+        Seuillage.seuillage("lena.pgm", 160);
     }
     
 }
