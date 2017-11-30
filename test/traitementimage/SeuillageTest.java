@@ -15,14 +15,14 @@ import static org.junit.Assert.*;
  * @author Quentin GIBAUD
  */
 public class SeuillageTest {
-    
+
     public SeuillageTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
@@ -35,7 +35,7 @@ public class SeuillageTest {
         System.out.println("seuillage");
         String nomImage = "imageTest.pgm";
         int seuil = 200;
-        int[][] expResult = {{0, 200, 200},{200, 200, 108},{178, 56, 89}};
+        int[][] expResult = {{0, 200, 200}, {200, 200, 108}, {178, 56, 89}};
         Seuillage.seuillage(nomImage, seuil);
         int[][] expObtain = LectureImage.lireImage("imageTest.pgm_seuil.pgm");
         assertArrayEquals(expResult, expObtain);
@@ -47,10 +47,12 @@ public class SeuillageTest {
     @Test
     public void testAgrandir() {
         System.out.println("agrandir");
-        String nomImage = "";
-        int facteurAgrandissant = 0;
+        String nomImage = "imageTest.pgm";
+        int facteurAgrandissant = 2;
         Seuillage.agrandir(nomImage, facteurAgrandissant);
-        fail("The test case is a prototype.");
+        int[][] expResult = {{0, 0, 234, 234, 203, 203}, {0, 0, 234, 234, 203, 203}, {255, 255, 266, 266, 108, 108}, {255, 255, 266, 266, 108, 108}, {178, 178, 56, 56, 89, 89}, {178, 178, 56, 56, 89, 89}};
+        int[][] expObtain = LectureImage.lireImage("imageTest.pgm_agrandie.pgm");
+        assertArrayEquals(expResult, expObtain);
     }
-    
+
 }
