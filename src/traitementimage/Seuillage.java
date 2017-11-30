@@ -6,6 +6,8 @@
 package traitementimage;
 
 import java.io.IOException;
+import static java.lang.Integer.min;
+import static java.lang.Math.ceil;
 
 /**
  *
@@ -59,5 +61,43 @@ public class Seuillage {
         }
         
         LectureImage.ecritureImage(matNewImage, nomImage + "_agrandie");
+    }
+    
+    /**
+     * Fonction de réduction de l'image
+     * @param nomImage Nom de l'image à lire
+     * @param facteurReduction Rapport entre l'image d'origine et celle agrandie
+     * @throws java.io.IOException
+     */
+    public static void reduire(String nomImage, int facteurReduction) throws IOException{
+        int[][] matImage = LectureImage.lireImage(nomImage);
+        int height = matImage.length;
+        int width = matImage[0].length;
+        
+        int[][] matNewImage;
+        int newHeight = height/facteurReduction + 1;
+        int newWidth = width/facteurReduction + 1;
+        matNewImage = new int[newHeight][newWidth];
+        
+        for(int k1=0; k1<newHeight; k1++){
+            int indexMaxHeight = min((k1+1)*facteurReduction, height);
+            for(int k2=0; k2<newHeight; k2++){
+                int indexMaxWidth = min((k2+1)*facteurReduction, width);
+                int average = 0;
+                int nbValue = 0;
+                for (int i = k1*facteurReduction; i < indexMaxHeight; i++) {
+                    for (int j = k2*facteurReduction; j<indexMaxWidth;j++) {
+                        average += matImage[i][j];
+                        nbValue++;
+                    }
+                }
+                if(nbValue > 0){
+                    average = (int)ceil(average/nbValue);
+                }
+                matNewImage[k1][k2] = average;
+            }
+        }
+        
+        LectureImage.ecritureImage(matNewImage, nomImage + "_reduite");
     }
 }

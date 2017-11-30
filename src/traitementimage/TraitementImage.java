@@ -22,6 +22,7 @@ public class TraitementImage {
         LectureImage.histogramme("lena.pgm");
         Seuillage.agrandir("lena.pgm", 3);
         Seuillage.seuillage("lena.pgm", 160);
+        Seuillage.reduire("lena.pgm", 3);
     }
     
 }
