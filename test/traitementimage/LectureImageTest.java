@@ -34,7 +34,7 @@ public class LectureImageTest {
     public void testLireImage() {
         System.out.println("lireImage");
         String nomFichierACharger = "imageTest.pgm";
-        int[][] expResult = {{0, 234, 203},{255, 266, 108},{178, 56, 89}};
+        int[][] expResult = {{0, 234, 203},{255, 216, 108},{178, 56, 89}};
         int[][] result = LectureImage.lireImage(nomFichierACharger);
         assertArrayEquals(expResult, result);
         
@@ -46,12 +46,11 @@ public class LectureImageTest {
     @Test
     public void testMaxTab() {
         System.out.println("maxTab");
-        int[] tab = null;
-        int expResult = 0;
+        int[] tab = {2,7,9,1};
+        int expResult = 9;
         int result = LectureImage.maxTab(tab);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -60,10 +59,11 @@ public class LectureImageTest {
     @Test
     public void testHistogramme() throws Exception {
         System.out.println("histogramme");
-        String nomFichier = "";
+        String nomFichier = "imageTest.pgm";
         LectureImage.histogramme(nomFichier);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int [][] histo = LectureImage.lireImage("histogramme.pgm");
+        int [][] expResult = LectureImage.lireImage("histogrammeImageTest.pgm");
+        assertArrayEquals(expResult, histo);
     }
 
     /**
@@ -72,11 +72,10 @@ public class LectureImageTest {
     @Test
     public void testEcritureImage() throws Exception {
         System.out.println("ecritureImage");
-        int[][] matImage = null;
-        String nomImage = "";
+        int[][] matImage = {{0, 234, 203},{255, 216, 108},{178, 56, 89}};
+        String nomImage = "ecritureTest";
         LectureImage.ecritureImage(matImage, nomImage);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertArrayEquals(LectureImage.lireImage("ecritureTest.pgm"),LectureImage.lireImage("imageTest.pgm"));
     }
     
 }
