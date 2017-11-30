@@ -34,7 +34,7 @@ public class LectureImageTest {
     public void testLireImage() {
         System.out.println("lireImage");
         String nomFichierACharger = "imageTest.pgm";
-        int[][] expResult = {{0, 234, 203},{255, 266, 108},{178, 56, 89}};
+        int[][] expResult = {{0, 234, 203},{255, 216, 108},{178, 56, 89}};
         int[][] result = LectureImage.lireImage(nomFichierACharger);
         assertArrayEquals(expResult, result);
         
