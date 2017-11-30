@@ -57,5 +57,20 @@ public class SeuillageTest {
         int[][] expObtain = LectureImage.lireImage("imageTest.pgm_agrandie.pgm");
         assertArrayEquals(expResult, expObtain);
     }
-
+    
+    /**
+     * Test of reduire method, of class Seuillage
+     * @throws java.io.IOtest
+     */
+    @Test
+    public void testReduire() throws IOException{
+        System.out.println("reduire");
+        String nomImage = "imageTest.pgm";
+        int facteurReduction = 2;
+        Seuillage.reduire(nomImage, facteurReduction);
+        int[][] expResult = {{177, 156},{117,89}};
+        int[][] expObtain = LectureImage.lireImage("imageTest.pgm_reduite.pgm");
+        assertArrayEquals(expResult,expObtain);
+        
+    }
 }
