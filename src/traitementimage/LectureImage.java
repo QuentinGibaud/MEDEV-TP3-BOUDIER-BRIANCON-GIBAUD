@@ -95,6 +95,11 @@ public class LectureImage {
         return image;
     }
 
+    /**
+     * Fonction qui recherche le maximum d'un tableau d'entier
+     * @param tab
+     * @return le maximum d'un tableau
+     */
     public static int maxTab(int[] tab) {
         int max = tab[0];
         for (int i = 0; i < tab.length; i++) {
@@ -105,6 +110,11 @@ public class LectureImage {
         return max;
     }
 
+    /**
+     * Fonction renvoyant l'histogramme d'une image
+     * @param nomFichier
+     * @throws IOException 
+     */
     public static void histogramme(String nomFichier) throws IOException {
         int[][] matriceImage = lireImage(nomFichier);
         int nbLigne = matriceImage.length;
@@ -146,6 +156,12 @@ public class LectureImage {
 
     }
 
+    /**
+     * Fonction permettant d'écrire une image pgm depuis une matrice de niveau de gris
+     * @param matImage matrice d'une image pgm
+     * @param nomImage nom de l'image que l'on veut écrire
+     * @throws IOException 
+     */
     public static void ecritureImage(int[][] matImage, String nomImage) throws IOException {
         BufferedWriter bufferedWriter;
         String nomSauvegarde = nomImage + ".pgm";
